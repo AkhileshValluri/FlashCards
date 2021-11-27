@@ -1,0 +1,27 @@
+{% extends 'base.html' %} 
+
+{% block title %} 
+    Edit Deck
+{% endblock %} 
+
+{% block content %} 
+<h1 style ="text-align : center; color:aliceblue">Edit Deck</h1> 
+
+<form method = "POST" class = "form-register"> 
+    {{form.hidden_tag()}}
+
+    {{form.deck_name.label()}}
+    {{form.deck_name(class = "form-control", placeholder = "Enter the Name of Deck : ")}}
+
+    <br>
+    {{form.description.label()}}
+    {{form.description(class = "form-control", placeholder = "Enter the Description of Deck")}}
+
+    <br>
+    <p style="color:aliceblue;"> Do you want the deck to be visible to other users?</p>
+    {{form.publish(class = "publish")}}
+    
+    {{form.submit(class = "btn btn-lg btn-block btn-primary")}}
+
+</form>
+{% endblock %} 

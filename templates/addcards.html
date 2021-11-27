@@ -1,0 +1,22 @@
+{% extends 'base.html' %} 
+
+{% block title %} 
+    Add cards 
+{% endblock %} 
+
+{% block content %} 
+    <h1 class = "display-4">Card to add :</h1>
+    <form method='POST' class = "form-register"> 
+
+        {{form.hidden_tag()}}
+
+        {{form.question.label()}}
+        {{form.question(class = "form-control", placeholder = "Enter Question : ")}}
+        
+        {{form.answer.label()}}
+        {{form.answer(class = "form-control", placeholder = "Enter Answer : ")}}
+        
+        {{form.submit(class = "btn btn-lg btn-block btn-primary")}}
+
+    </form>
+{% endblock %} 

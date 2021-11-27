@@ -1,0 +1,35 @@
+{% extends 'base.html' %} 
+
+{% block title %} 
+    Delete Cards 
+{% endblock %} 
+
+{% block content %} 
+
+    <table class="table table-hover table-dark">
+        <thead>
+            <tr>
+                <h1 class="display-3">Cards</h1> 
+                <th scope="col">S.No</th>
+                <th scope="col">Question</th>
+                <th scope="col">Answer</th>
+                <th scope="col">Modify</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for card in cards %}
+
+                <tr>
+                    <td>{{card.card_id}}</td>
+                    <td> {{card.card_question}}</td>
+                    <td>{{card.card_answer}}</td>
+                    <td> 
+                        <button type="button" class="btn btn-danger"><a href = "//localhost:5000/{{users.user_id}}/{{card.card_id}}/deletecard" style ="color:aliceblue">  Delete card </a></button>
+                    </td>
+                </tr>
+            {% endfor %}                 
+        </tbody>
+    </table>
+    <button type="button" class="btn btn-success btn-lg" style = "width:100%"><a href = "//localhost:5000/{{uid}}/modifycards" style ="color:aliceblue"> Return </a></button>
+
+{% endblock %} 

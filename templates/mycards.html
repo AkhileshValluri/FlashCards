@@ -1,0 +1,59 @@
+{% extends 'base.html' %} 
+
+{% block title %} 
+    My Decks
+
+{% endblock %}
+
+{% block content %} 
+
+<h1 style ="text-align : center; color:aliceblue">Dashboard</h1> 
+    <table class="table table-hover table-dark" >
+        <thead style = "text-align : center">
+            <tr>
+                
+                <th scope="col">Deck Name</th>
+                <th scope="col">Deck Description</th>
+                <th scope="col">Last Reviewed</th>
+                <th scope="col">Familiarity</th>
+                <th scope="col">Review</th>
+                
+
+            </tr>
+        </thead>
+        <tbody style = "text-align: center;">
+            {% for deck in decks %}
+
+                <tr>
+                    
+                    <td>{{deck.deck_name}}</td>
+                    <td>{{deck.deck_description}}</td>
+                    <td style = "color:yellow"> {{ deck.last_viewed|string|truncate(19, True, '', 0) }} </td>
+                    {% if deck.deck_score/(deck.deck_viewed+1) * 100 > 80 %} 
+                        <td style  ="color:rgb(22, 248, 10)">{{deck.deck_score/(deck.deck_viewed+1) * 10//1}} </td>
+                    
+                    
+                    {% elif  deck.deck_score/(deck.deck_viewed+1) * 100 >= 50 %} 
+                        <td style  ="color:yellow">{{deck.deck_score/(deck.deck_viewed+1) * 10//1}} </td>
+
+
+                    {% elif  deck.deck_score/(deck.deck_viewed+1) * 100 < 50 and deck.deck_score/(deck.deck_viewed+1) * 100 >= 30  %} 
+                    <td style  ="color:rgb(255, 174, 0)">{{deck.deck_score/(deck.deck_viewed+1) * 10//1}} </td>
+      
+                    
+                    {% elif deck.deck_score/(deck.deck_viewed+1) * 100 < 30 %} 
+                    <td style  ="color:rgb(255, 0, 0)">{{deck.deck_score/(deck.deck_viewed+1) * 10//1}} </td>
+                    
+                    {% endif %}
+
+         
+                    <td><button type="button" class="btn btn-primary"><a href = "//localhost:5000/{{deck.deck_id}}/viewdeck.html" style="color:white">View Deck</a></button> </td>
+                </tr>
+            {% endfor %}                 
+        </tbody>
+        
+        <button type="button" class="btn btn-success btn-lg" style = "width: 100%;"><a href = "http://localhost:5000/{{user.user_id}}/modifycards" style="color:whitesmoke"> Modify Deck </a></button>    
+    
+
+        
+{% endblock %}

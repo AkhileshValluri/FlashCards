@@ -1,0 +1,41 @@
+{% extends 'base.html' %} 
+
+{% block title %} Sysadmin {% endblock %} 
+
+{% block content %} 
+
+<h1 style ="text-align : center; color:aliceblue">{{users.user_name}} > </h1> 
+<table class="table table-hover table-dark" style = "display:flexbox;">
+    <thead>
+        <tr style = "text-align: center;">
+            
+
+            
+            <th scope="col">Deck Name</th>
+            <th scope="col">Deck Description</th>
+            <th scope="col">Deck Score</th>
+            <th scope="col">View Deck</th>
+            <th scope="col">Delete Deck</th>
+        </tr>
+    </thead>
+    <tbody style = "text-align: center;">
+        {% for deck in decks %}
+
+            <tr>
+                
+                <td>{{deck.deck_name}}</td>
+                <td>{{deck.deck_description}}</td>
+                <td>{{deck.deck_score}}</td>
+                <td> 
+                    <button type="button" class="btn btn-success"><a href = "//localhost:5000/syscard/{{deck.deck_id}}" style="color:whitesmoke">View Deck</a></button>
+                    
+                </td>
+                <td> 
+                    <form method = "post" action = "//localhost:5000/syscard/{{deck.deck_id}}"><input type = "submit"  class = "btn btn-danger" value="Delete Deck"></form>
+                </td>
+            </tr>
+        {% endfor %}                 
+    </tbody>
+</table>
+
+{% endblock %} 

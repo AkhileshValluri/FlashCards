@@ -1,0 +1,35 @@
+{% extends 'base.html' %} 
+
+{% block title %} Public Decks {% endblock %} 
+
+{% block content %} 
+
+<h1 style ="text-align : center; color:aliceblue">These are decks Made by other Users</h1> 
+    <table class="table table-hover table-dark" style = "display:flexbox;">
+        <thead>
+            <tr style = "text-align: center;">
+                
+
+                
+                <th scope="col">Deck Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">Author</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody style = "text-align: center;">
+            {% for deck in decks %}
+
+                <tr>
+                    
+                    <td>{{deck.deck_name}}</td>
+                    <td>{{deck.deck_description}}</td>
+                    <td>{{users[deck.deck_owner]}}</td>
+                    <td><button type="button" class="btn btn-primary"><a href = "//localhost:5000/{{deck.deck_id}}/viewpublicdecks" style="color:white">View Deck</a></button> 
+                    <button type="button" class="btn btn-success"><a href = "//localhost:5000/{{deck.deck_id}}/importdecks" style="color:white">Import Deck</a></button> </td>
+                </tr>
+            {% endfor %}                 
+        </tbody>
+    </table>
+    
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends 'base.html' %} 
+
+{% block title %} Sysadmin {% endblock %} 
+
+{% block content %} 
+
+<h1 style ="text-align : center; color:aliceblue">Active Users</h1> 
+<table class="table table-hover table-dark" style = "display:flexbox;">
+    <thead>
+        <tr style = "text-align: center;">
+            
+
+            
+            <th scope="col">User Name</th>
+            <th scope="col">Email-Id</th>
+            <th scope="col">View</th>
+            <th scope="col">Delete</th>
+        </tr>
+    </thead>
+    <tbody style = "text-align: center;">
+        {% for user in users %}
+
+            <tr>
+                <td>{{user.user_name}}</td>
+                <td>{{user.email_id}}</td>
+                {% if not user.user_name == "sysadmin" %}
+                    <td> 
+                        <button type="button" class="btn btn-success"><a href = "//localhost:5000/sysdeck/{{user.user_id}}" style="color:whitesmoke">View User</a></button>
+                    </td>
+                    <td> 
+                        <form method = "post" action = "//localhost:5000/sysdeck/{{user.user_id}}"><input type = "submit" class = "btn btn-danger" value="Delete User">  </form>
+                    </td>
+                {% else %}
+                    <td> 
+                        <button type="button" class="btn btn-success" disabled><a href = "#" style="color:whitesmoke">View User</a></button>
+                    </td>
+                    <td> 
+                        <form method = "post" action = "#" ><button type="button" class="btn btn-danger" disabled>Delete User</button></form>
+                    </td>
+                {% endif %}
+            </tr>
+        {% endfor %}                 
+    </tbody>
+</table>
+
+{% endblock %} 
