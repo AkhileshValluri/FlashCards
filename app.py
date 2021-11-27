@@ -256,7 +256,7 @@ def viewcard(did, cid):
 
         t = deck.query.filter_by(deck_id = did).first()
         t.deck_score = deck.deck_score + diff
-        t.update(dict(last_viewed = datetime.datetime.now()))
+        t.last_viewed = datetime.datetime.now()
         db.session.commit()
 
         

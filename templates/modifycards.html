@@ -25,24 +25,24 @@
                     <td>{{deck.deck_name}}</td>
                     <td>{{deck.deck_description}}</td>
                     <td>
-                        <button type="button" class="btn btn-primary"><a href = "//localhost:5000/{{deck.deck_id}}/editdeck.html" style="color:whitesmoke"> Edit Deck </a></button>
+                        <button type="button" class="btn btn-primary"><a href = "{{url_for('editdeck', did = deck.deck_id)}}" style="color:whitesmoke"> Edit Deck </a></button>
       
-                        <button type="button" class="btn btn-danger"><a href = "//localhost:5000/{{deck.deck_id}}/deletedeck.html" style="color:whitesmoke"> Delete Deck </a></button>
+                        <button type="button" class="btn btn-danger"><a href = "{{url_for('deletedeck', id = deck.deck_id)}}" style="color:whitesmoke"> Delete Deck </a></button>
                     </td>
                     <td> 
-                        <button type="button" class="btn btn-success"><a href = "//localhost:5000/{{deck.deck_id}}/addcards.html" style="color:whitesmoke">Add cards</a></button>
-                        <button type="button" class="btn btn-danger"><a href = "//localhost:5000/{{deck.deck_id}}/deletecards.html" style="color:whitesmoke"> Delete cards </a></button>
+                        <button type="button" class="btn btn-success"><a href = "{{url_for('addcards', id  = deck.deck_id)}}" style="color:whitesmoke">Add cards</a></button>
+                        <button type="button" class="btn btn-danger"><a href = "{{url_for('deletecards', id = deck.deck_id)}}" style="color:whitesmoke"> Delete cards </a></button>
                     </td>
                 </tr>
             {% endfor %}                 
         </tbody>
     </table>
     
-        <button type="button" class="btn btn-success btn-lg" style = "width: 100%;"><a href = "//localhost:5000/{{user.user_id}}/adddeck.html" style="color:whitesmoke"> Add Deck </a></button>
+        <button type="button" class="btn btn-success btn-lg" style = "width: 100%;"><a href = "{{url_for('adddeck', id = user.user_id)}}" style="color:whitesmoke"> Add Deck </a></button>
         <span>  </span>
         <p> </p>
         <p></p>
-        <button type="button" class="btn btn-primary btn-lg " style = "width:100%"><a href = "//localhost:5000/{{user.user_id}}/mycards" style="color:whitesmoke"> Review Deck </a></button>
+        <button type="button" class="btn btn-primary btn-lg " style = "width:100%"><a href = "{{url_for('mycards', uid = user.user_id)}}" style="color:whitesmoke"> Review Deck </a></button>
          
     
 {% endblock %} 

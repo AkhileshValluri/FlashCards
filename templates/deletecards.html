@@ -24,12 +24,12 @@
                     <td> {{card.card_question}}</td>
                     <td>{{card.card_answer}}</td>
                     <td> 
-                        <button type="button" class="btn btn-danger"><a href = "//localhost:5000/{{users.user_id}}/{{card.card_id}}/deletecard" style ="color:aliceblue">  Delete card </a></button>
+                        <button type="button" class="btn btn-danger"><a href = "{{url_for('deletecard', id = card.card_id)}}" style ="color:aliceblue">  Delete card </a></button>
                     </td>
                 </tr>
             {% endfor %}                 
         </tbody>
     </table>
-    <button type="button" class="btn btn-success btn-lg" style = "width:100%"><a href = "//localhost:5000/{{uid}}/modifycards" style ="color:aliceblue"> Return </a></button>
+    <button type="button" class="btn btn-success btn-lg" style = "width:100%"><a href = "{{url_for('modifycards', uid = uid)}}" style ="color:aliceblue"> Return </a></button>
 
 {% endblock %} 

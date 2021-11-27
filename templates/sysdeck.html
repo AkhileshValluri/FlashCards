@@ -27,11 +27,11 @@
                 <td>{{deck.deck_description}}</td>
                 <td>{{deck.deck_score}}</td>
                 <td> 
-                    <button type="button" class="btn btn-success"><a href = "//localhost:5000/syscard/{{deck.deck_id}}" style="color:whitesmoke">View Deck</a></button>
+                    <button type="button" class="btn btn-success"><a href = "{{url_for('syscard', did = deck.deck_id)}}" style="color:whitesmoke">View Deck</a></button>
                     
                 </td>
                 <td> 
-                    <form method = "post" action = "//localhost:5000/syscard/{{deck.deck_id}}"><input type = "submit"  class = "btn btn-danger" value="Delete Deck"></form>
+                    <form method = "post" action = "{{url_for('syscard', did = deck.deck_id)}}"><input type = "submit"  class = "btn btn-danger" value="Delete Deck"></form>
                 </td>
             </tr>
         {% endfor %}                 

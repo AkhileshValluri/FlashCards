@@ -1,2 +1,0 @@
-# FlashCards
-IITM-Project

@@ -25,10 +25,10 @@
                 <td>{{user.email_id}}</td>
                 {% if not user.user_name == "sysadmin" %}
                     <td> 
-                        <button type="button" class="btn btn-success"><a href = "//localhost:5000/sysdeck/{{user.user_id}}" style="color:whitesmoke">View User</a></button>
+                        <button type="button" class="btn btn-success"><a href = "{{url_for('sysdeck', uid = user.user_id)}}" style="color:whitesmoke">View User</a></button>
                     </td>
                     <td> 
-                        <form method = "post" action = "//localhost:5000/sysdeck/{{user.user_id}}"><input type = "submit" class = "btn btn-danger" value="Delete User">  </form>
+                        <form method = "post" action = "{{url_for('sysdeck', uid = user.user_id)}}"><input type = "submit" class = "btn btn-danger" value="Delete User">  </form>
                     </td>
                 {% else %}
                     <td> 

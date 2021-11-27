@@ -47,12 +47,12 @@
                     {% endif %}
 
          
-                    <td><button type="button" class="btn btn-primary"><a href = "//localhost:5000/{{deck.deck_id}}/viewdeck.html" style="color:white">View Deck</a></button> </td>
+                    <td><button type="button" class="btn btn-primary"><a href = "{{url_for('viewdeck', id = deck.deck_id)}}" style="color:white">View Deck</a></button> </td>
                 </tr>
             {% endfor %}                 
         </tbody>
         
-        <button type="button" class="btn btn-success btn-lg" style = "width: 100%;"><a href = "http://localhost:5000/{{user.user_id}}/modifycards" style="color:whitesmoke"> Modify Deck </a></button>    
+        <button type="button" class="btn btn-success btn-lg" style = "width: 100%;"><a href = "{{url_for('modifycards', uid = user.user_id)}}" style="color:whitesmoke"> Modify Deck </a></button>    
     
 
         
